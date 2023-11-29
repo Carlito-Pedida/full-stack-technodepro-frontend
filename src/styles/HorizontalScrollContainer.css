@@ -1,0 +1,8 @@
+.horizontal-scroll-container {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.scroll-content {
+  display: grid; /* or use display: grid; */
+}
