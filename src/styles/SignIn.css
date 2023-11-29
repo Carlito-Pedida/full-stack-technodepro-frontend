@@ -1,0 +1,17 @@
+.login-wrap {
+  border: solid 1px rgba(65, 113, 255, 0.387);
+}
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(182, 202, 212, 0.071);
+  margin: 20px;
+  padding: 50px;
+  border-radius: 5px;
+  color: rgb(2, 81, 130);
+}
+.loginput {
+  text-align: center;
+}

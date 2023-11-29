@@ -1,0 +1,50 @@
+.landing-wrap {
+  border: solid 1px rgba(65, 113, 255, 0.387);
+}
+.landing {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(182, 202, 212, 0.071);
+  border-radius: 5px;
+  margin: 20px;
+  padding: 50px;
+  box-shadow: rgb(73, 85, 98);
+}
+.landing-img {
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+}
+.sign-up {
+  color: rgb(39, 101, 201);
+}
+.network {
+  color: rgb(2, 81, 130);
+}
+.hassle {
+  color: rgb(181, 94, 0);
+  font-weight: 500;
+}
+.ask {
+  color: rgb(72, 131, 208);
+}
+.img {
+  border-radius: 10px;
+}
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
