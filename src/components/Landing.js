@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Figure } from "react-bootstrap";
 import "../styles/Landing.css";
+import "../styles/SignInLanding.css";
 import UserContext from "../contexts/UserContext";
 import { Link, useParams } from "react-router-dom";
 

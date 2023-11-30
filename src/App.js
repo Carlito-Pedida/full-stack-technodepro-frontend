@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, BrowserRouter, Routes, useNavigate } from "react-router-dom";
+import { Route, BrowserRouter, Routes } from "react-router-dom";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import "./App.css";
@@ -15,7 +15,6 @@ import { PostProvider } from "./contexts/PostProvider";
 import jwtDecode from "jwt-decode";
 import SignOut from "./components/SignOut";
 import EditProfile from "./components/EditProfile";
-import SignInLanding from "./components/SignInLanding";
 
 function App() {
   const [user, setUser] = useState();
@@ -38,7 +37,6 @@ function App() {
                 <Route index element={<Landing user={user} />} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/signin" element={<SignIn />} />
-                <Route path="/splash/profile" element={<SignInLanding />} />
                 <Route path="/signout" element={<SignOut />} />
                 <Route path="/newsfeed" element={<NewsFeed />} />
                 <Route path="/post/new" element={<NewPost />} />
