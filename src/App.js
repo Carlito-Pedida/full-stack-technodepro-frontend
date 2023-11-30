@@ -15,6 +15,7 @@ import { PostProvider } from "./contexts/PostProvider";
 import jwtDecode from "jwt-decode";
 import SignOut from "./components/SignOut";
 import EditProfile from "./components/EditProfile";
+import SignInLanding from "./components/SignInLanding";
 
 function App() {
   const [user, setUser] = useState();
@@ -34,9 +35,10 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Navigation user={user} />}>
-                <Route index element={<Landing />} />
+                <Route index element={<Landing user={user} />} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/signin" element={<SignIn />} />
+                <Route path="/splash/profile" element={<SignInLanding />} />
                 <Route path="/signout" element={<SignOut />} />
                 <Route path="/newsfeed" element={<NewsFeed />} />
                 <Route path="/post/new" element={<NewPost />} />

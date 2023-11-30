@@ -7,7 +7,7 @@ import Avatar from "react-avatar";
 import { RxAvatar } from "react-icons/rx";
 
 function Navigation({ user }) {
-  let { userid } = useParams();
+  let { userId } = useParams();
   const [userPosts, setUserPosts] = useState({});
 
   let { getUserPosts } = useContext(UserContext);
@@ -69,13 +69,12 @@ function Navigation({ user }) {
             <Link to="/" className="nav-link">
               <strong>Main</strong>
             </Link>
-
             {user && (
               <React.Fragment>
                 <Link
                   to={`/profile/${user.userId}`}
                   className="nav-link"
-                  key={userid}
+                  key={userId}
                 >
                   <strong className="">Hello {user.first_name}!</strong>
                 </Link>
