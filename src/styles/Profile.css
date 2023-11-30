@@ -1,4 +1,233 @@
+.post-item {
+  border-radius: 7px;
+  margin: 20px;
+  padding: 25px;
+  display: flex;
+  background-color: rgba(207, 205, 247, 0.196);
+  flex-direction: column;
+  row-gap: 10px;
+}
 .profile-wrap {
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid 1px rgba(65, 113, 255, 0.387);
+  padding: 10px;
+  inline-size: 630px;
+}
+.onthewire {
+  display: flex;
+  justify-content: space-around;
+  color: rgb(2, 81, 130);
+}
+
+.utils {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: right;
+  font-style: italic;
+  font-size: small;
+}
+.timestamp {
+  color: rgb(188, 122, 0);
+  font-size: smaller;
+  font-weight: 500;
+}
+.thread {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: rgb(0, 0, 0);
+  background-color: rgba(169, 184, 191, 0.245);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.editButton {
+  width: calc(var(--nav-size) * 0.8);
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: rgb(232, 232, 232);
+  color: gray;
+}
+
+.editButton:hover {
+  background-color: rgb(169, 169, 169);
+  border: solid 2px white;
+  color: whitesmoke;
+  background-color: rgb(39, 130, 36);
+}
+
+.deleteButton {
+  width: calc(var(--nav-size) * 0.8);
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: rgb(232, 232, 232);
+  color: gray;
+}
+.deleteButton:hover {
+  background-color: rgb(169, 169, 169);
+  border: solid 2px white;
+  color: whitesmoke;
+  background-color: rgb(251, 101, 101);
+}
+
+.first_name {
+  font-size: small;
+  font-weight: 600;
+}
+
+.message-action {
+  display: flex;
+  column-gap: 5px;
+  font-size: small;
+  font-weight: 600;
+  text-decoration: none;
+  color: rgb(97, 97, 97);
+}
+
+.message-action:hover {
+  scale: calc(1.07);
+}
+
+.message-icons {
+  size: 35px;
+}
+.main-post {
+  color: rgb(50, 50, 50);
+  font-size: small;
+}
+
+.carousel {
+  height: 200px;
+}
+.post-resp {
+  color: rgb(81, 81, 81);
+  font-size: 11px;
+}
+.horizontal-line {
+  border-top: 1px solid rgb(155, 155, 155);
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(65, 113, 255, 0.387);
+}
+
+.wire {
+  font-size: large;
+  font-weight: 700;
+  color: rgb(81, 81, 81);
+}
+.share-input {
+  border: 0px;
+  border-radius: 40px;
+  height: 40px;
+  background-color: rgb(221, 221, 221);
+  width: auto;
+  color: rgb(50, 50, 50);
+  font-size: small;
+}
+.modal-show {
+  background-color: black;
+  max-height: 100%;
+  height: 100%;
+}
+.side-bar {
+  background-color: white;
+  width: 200px;
+}
+.image-wrapper {
+  max-width: 1200px;
+  max-height: 630px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.image {
+  width: 100%;
+  object-fit: contain; /* or "cover" depending on your preference */
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+}
+.side {
+  background-color: aliceblue;
+}
+.image-side {
+  background-color: black;
+  object-fit: cover;
+}
+
+.story {
+  padding: 10px;
+  position: relative;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUOIXLT7t2ZOpm0eRPSMglNQljjEc0IsnNBH1KQwNL&s");
+  width: 120px;
+  height: 200px;
+  box-shadow: 0px, 5px, 17px, -7px rgba(0, 0, 0, 75);
+  border-radius: 10px;
+  transition: transform 100ms ease-in;
+  cursor: pointer;
+}
+
+.story > h4 {
+  position: absolute;
+  bottom: 0px;
+  left: 20px;
+  color: white;
+}
+
+.story:hover {
+  transform: scale(1.07);
+}
+.story_av {
+  margin: 10px;
+  border: 5px solid white;
+}
+
+.story-reel {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  column-gap: 5px;
+}
+
+.responses:hover {
+  scale: calc(1.07);
+}
+
+.cardbody {
+  width: 100%;
+  margin-top: 15px;
+  border-radius: 15px;
+  background-color: rgb(244, 243, 243);
+  box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 75);
+}
+.post-image > img {
+  width: 100%;
+}
+
+/* .profile-wrap {
   margin-left: auto;
   margin-right: auto;
   border: solid 1px rgba(65, 113, 255, 0.387);

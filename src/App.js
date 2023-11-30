@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, BrowserRouter, Routes, useNavigate } from "react-router-dom";
+import { Route, BrowserRouter, Routes } from "react-router-dom";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import "./App.css";
@@ -34,7 +34,7 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Navigation user={user} />}>
-                <Route index element={<Landing />} />
+                <Route index element={<Landing user={user} />} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/signout" element={<SignOut />} />

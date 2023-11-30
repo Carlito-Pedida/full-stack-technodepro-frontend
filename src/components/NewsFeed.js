@@ -93,8 +93,6 @@ function NewsFeed({ user }) {
 
   const [userPosts, setUserPosts] = useState({});
 
-  // console.log(userPosts);
-
   let { getUserPosts } = useContext(UserContext);
 
   useEffect(() => {
