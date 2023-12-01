@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
 import "../styles/SignUp.css";
-import { Stack } from "react-bootstrap";
+import { Button, Stack } from "react-bootstrap";
 
 const SignUp = () => {
   const [username, setUsername] = useState("");
@@ -43,7 +43,15 @@ const SignUp = () => {
   return (
     <div className="formwrap">
       <form className="register" onSubmit={handleSubmit}>
-        <h3>REGISTER</h3>
+        <h3>
+          <strong className="sign-up">
+            {" "}
+            <Link type={Button}>Sign Up Here!</Link>
+          </strong>{" "}
+          to get started.
+          <br />
+          it's free!
+        </h3>
         <br></br>
         <Stack gap={4} className="mx-auto">
           <div className="reg-input">

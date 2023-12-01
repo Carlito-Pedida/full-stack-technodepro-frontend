@@ -142,7 +142,7 @@ function Profile({ user }) {
       <div className="feedwrap" key={params.userId} t>
         <Card className="text-center">
           <Card.Header>
-            <strong>Welcome back {first_name}!</strong>
+            <strong>{username}'s page!</strong>
           </Card.Header>
           <Card.Body>
             <div className="profilebod">
