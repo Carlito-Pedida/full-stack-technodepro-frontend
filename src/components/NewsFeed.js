@@ -119,13 +119,6 @@ function NewsFeed({ user }) {
     };
   }, []);
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     await getUserPosts().then((result) => setUserPosts(result));
-  //   }
-  //   fetchData();
-  // }, []);
-
   let navigate = useNavigate();
 
   let { deletePost } = useContext(PostContext);
