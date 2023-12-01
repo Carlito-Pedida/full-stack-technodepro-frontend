@@ -5,6 +5,7 @@ import UserContext from "../contexts/UserContext";
 import "../styles/Home.css";
 import Avatar from "react-avatar";
 import { RxAvatar } from "react-icons/rx";
+import SignIn from "./SignIn";
 
 function Navigation({ user }) {
   let { userId } = useParams();
@@ -37,12 +38,18 @@ function Navigation({ user }) {
     };
   }, []);
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     await getUserPosts().then((result) => setUserPosts(result));
-  //   }
-  //   fetchData();
-  // }, [getUserPosts]);
+  const [showSignInModal, setShowSignInModal] = useState(false);
+
+  const openSignInModal = () => {
+    setShowSignInModal(true);
+  };
+
+  const closeSignInModal = () => {
+    setShowSignInModal(false);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <>
@@ -95,7 +102,11 @@ function Navigation({ user }) {
 
             {!user && (
               <React.Fragment>
-                <Link to="/signin" className="nav-link">
+                <Link
+                  to={openSignInModal}
+                  className="nav-link"
+                  onClick={openSignInModal}
+                >
                   <strong>Sign In</strong>
                 </Link>
                 <Link to="/signup" className="nav-link">
@@ -116,6 +127,11 @@ function Navigation({ user }) {
       <Stack gap={3} className="col-md-10 mx-auto mt-3">
         <Outlet />
       </Stack>
+      <SignIn
+        show={showSignInModal}
+        handleClose={closeSignInModal}
+        handleSubmit={handleSubmit}
+      />
     </>
   );
 }

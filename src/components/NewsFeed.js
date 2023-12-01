@@ -276,29 +276,33 @@ function NewsFeed({ user }) {
                                   </div>
                                 </div>
                               </div>
-                              <div className="d-flex">
-                                <Link
-                                  className="editButton ms-3"
-                                  to={`/post/${post.postId}/edit`}
-                                  style={{ marginRight: "10px" }}
-                                >
-                                  <FaRegEdit size={"15px"} />
-                                </Link>
-                                <Link
-                                  className="deleteButton"
-                                  to={"#"}
-                                  onClick={handleDelete.bind(
-                                    this,
-                                    post.postId,
-                                    post.userId
-                                  )}
-                                >
-                                  <FaRegTrashCan
-                                    className="trash"
-                                    size={"15px"}
-                                  />
-                                </Link>
-                              </div>
+                              {userPosts && post.userId == userPosts.userId ? (
+                                <div className="d-flex">
+                                  <Link
+                                    className="editButton ms-3"
+                                    to={`/post/${post.postId}/edit`}
+                                    style={{ marginRight: "10px" }}
+                                  >
+                                    <FaRegEdit size={"15px"} />
+                                  </Link>
+                                  <Link
+                                    className="deleteButton"
+                                    to={"#"}
+                                    onClick={handleDelete.bind(
+                                      this,
+                                      post.postId,
+                                      post.userId
+                                    )}
+                                  >
+                                    <FaRegTrashCan
+                                      className="trash"
+                                      size={"15px"}
+                                    />
+                                  </Link>
+                                </div>
+                              ) : (
+                                <></>
+                              )}
                             </div>
 
                             <div className="main-post ps-3 pe-3 mb-2">

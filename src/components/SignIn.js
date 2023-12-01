@@ -1,56 +1,116 @@
-import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Modal, Form, Button } from "react-bootstrap";
 import UserContext from "../contexts/UserContext";
-import "../styles/SignIn.css";
-import { Stack } from "react-bootstrap";
 
-const SignIn = ({ user }) => {
+import "../styles/SignIn.css";
+
+const SignIn = ({ show, handleClose }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
-  //let { userId } = useParams();
+  const [rememberMe, setRememberMe] = useState(false);
 
   let { signInUser } = useContext(UserContext);
-  let navigate = useNavigate();
 
-  function handleSubmit(event) {
+  useEffect(() => {
+    const savedUsername = localStorage.getItem("username");
+    const savedPassword = localStorage.getItem("password");
+    const savedRememberMe = localStorage.getItem("rememberMe");
+
+    if (savedUsername && savedPassword && savedRememberMe) {
+      setUsername(savedUsername);
+      setPassword(savedPassword);
+      setRememberMe(savedRememberMe === "true");
+    }
+  }, []);
+
+  const handleRememberMeChange = () => {
+    if (rememberMe) {
+      setRememberMe(false);
+    } else {
+      setRememberMe(true);
+      window.alert("WARNING! Select only if you trust this device!");
+    }
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
+
+    if (rememberMe) {
+      localStorage.setItem("username", username);
+      localStorage.setItem("password", password);
+      localStorage.setItem("rememberMe", rememberMe);
+    } else {
+      localStorage.removeItem("username");
+      localStorage.removeItem("password");
+      localStorage.removeItem("rememberMe");
+    }
+
     signInUser(username, password)
       .then(() => {
         window.location = "/";
       })
       .catch((error) => {
         console.log(error);
-        window.alert(
-          "Failed login! Check your username/password or Sign up to create an account"
-        );
-        navigate("/signin");
+        window.alert("Failed Login");
       });
-  }
+  };
 
   return (
-    <div className="login-wrap">
-      <form onSubmit={handleSubmit} className="login">
-        <h3>LOGIN</h3>
-        <br />
-        <Stack gap={4} className="mx-auto">
-          <input
-            className="loginput"
-            placeholder="Username"
-            type="text"
-            name="username"
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <input
-            className="loginput"
-            placeholder="Password"
-            type="password"
-            name="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button>Sign In</button>
-        </Stack>
-      </form>
+    <div>
+      <Modal show={show} onHide={handleClose} centered>
+        <div className="form-wrap">
+          <div className="form-case">
+            <Modal.Body>
+              <div className="divider d-flex align-items-center my-4">
+                <p className="text-center mx-3 mb-0">Sign In</p>
+              </div>
+
+              <Form onSubmit={handleSubmit}>
+                <Form.Group className="mb-3">
+                  <Form.Control
+                    type="text"
+                    placeholder="username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Control
+                    type="password"
+                    placeholder="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </Form.Group>
+                <div className="d-flex justify-content-center mb-4">
+                  <Form.Check
+                    type="checkbox"
+                    label="Remember me"
+                    checked={rememberMe}
+                    onChange={handleRememberMeChange}
+                  />
+                </div>
+
+                <Button
+                  className="mb-3 w-100"
+                  variant="primary "
+                  size="sm"
+                  type="submit"
+                >
+                  Sign In
+                </Button>
+              </Form>
+            </Modal.Body>
+            <p className="register">
+              Not a member yet?{" "}
+              <a className="register-link" href="/signup">
+                Sign Up Here
+              </a>{" "}
+              it's free!
+            </p>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 };

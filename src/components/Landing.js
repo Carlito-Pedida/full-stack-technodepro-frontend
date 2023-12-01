@@ -4,6 +4,8 @@ import "../styles/Landing.css";
 import "../styles/SignInLanding.css";
 import UserContext from "../contexts/UserContext";
 import { Link, useParams } from "react-router-dom";
+import SignUp from "./SignUp";
+import SignIn from "./SignIn";
 
 function Landing({ user }) {
   let { userId } = useParams();
@@ -35,6 +37,19 @@ function Landing({ user }) {
     };
   }, []);
 
+  const [showSignInModal, setShowSignInModal] = useState(false);
+
+  const openSignInModal = () => {
+    setShowSignInModal(true);
+  };
+
+  const closeSignInModal = () => {
+    setShowSignInModal(false);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <>
       {user && (
@@ -49,6 +64,19 @@ function Landing({ user }) {
 
               <h3 className="ask-user">What would you like to do today?</h3>
               <br />
+              <h1 className="network">technode.com</h1>
+
+              <p className="hassle">
+                The hassle-free media platform for aspiring full-stack
+                developers
+              </p>
+              <br />
+
+              <p className="ask">
+                <strong>
+                  ask questions, share your thoughts, and help someone today!
+                </strong>
+              </p>
             </div>
             <div className="text-overlay">
               <img
@@ -85,7 +113,9 @@ function Landing({ user }) {
         <div className="landing-wrap">
           <div className="landing">
             <div>
-              <h1 className="network">a haven for tech writers and readers</h1>
+              <h1 className="network">Welcome to technode.com</h1>
+              <h3 className="network">a haven for tech writers and readers</h3>
+              <br />
               <p className="hassle">
                 The hassle-free media platform for aspiring full-stack
                 developers
@@ -98,22 +128,30 @@ function Landing({ user }) {
                 </strong>
               </p>
               <br />
-              <h3>
-                <strong className="sign-up">
-                  {" "}
-                  <a href="/signup">Sign Up Here!</a>
-                </strong>{" "}
-                to get started.
-                <br />
-                it's free!
-              </h3>
+
+              <div className="sign-in">
+                <h3>
+                  <strong className="sign-up">
+                    <Link
+                      type="Button"
+                      to={openSignInModal}
+                      className="nav-link"
+                      onClick={openSignInModal}
+                    >
+                      Sign In Here
+                    </Link>
+                  </strong>{" "}
+                  to access your account.
+                  <br />
+                </h3>
+              </div>
             </div>
             <div className="landing-img">
-              <Figure.Image
-                className="img"
-                width={600}
-                alt="171x180"
-                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8dGVjaG5vbG9neXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+              <SignUp />
+              <SignIn
+                show={showSignInModal}
+                handleClose={closeSignInModal}
+                handleSubmit={handleSubmit}
               />
             </div>
           </div>
