@@ -21,6 +21,9 @@
 .sign-up {
   color: rgb(39, 101, 201);
 }
+.sign-in {
+  display: block;
+}
 .network {
   color: rgb(2, 81, 130);
 }
