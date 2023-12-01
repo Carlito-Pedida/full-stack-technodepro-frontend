@@ -109,18 +109,17 @@ function Navigation({ user }) {
                 >
                   <strong>Sign In</strong>
                 </Link>
-                <Link to="/signup" className="nav-link">
+                <Link to="/" className="nav-link">
                   <strong>Sign Up</strong>
+                </Link>
+                <Link to="/newsfeed" className="nav-link">
+                  <strong>News Feed</strong>
+                </Link>
+                <Link to="/post/new" className="nav-link">
+                  <strong>Post New</strong>
                 </Link>
               </React.Fragment>
             )}
-
-            <Link to="/newsfeed" className="nav-link">
-              <strong>News Feed</strong>
-            </Link>
-            <Link to="/post/new" className="nav-link">
-              <strong>Post New</strong>
-            </Link>
           </Nav>
         </Container>
       </Navbar>

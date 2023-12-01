@@ -95,11 +95,36 @@ function NewsFeed({ user }) {
   let { getUserPosts } = useContext(UserContext);
 
   useEffect(() => {
+    let isMounted = true;
+
     async function fetchData() {
-      await getUserPosts().then((result) => setUserPosts(result));
+      try {
+        const result = await getUserPosts();
+        if (isMounted) {
+          setUserPosts(result);
+        }
+      } catch (error) {
+        if (isMounted) {
+          if (error.response && error.response.status === 404) {
+            console.clear();
+          }
+        }
+      }
     }
+
     fetchData();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
+
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     await getUserPosts().then((result) => setUserPosts(result));
+  //   }
+  //   fetchData();
+  // }, []);
 
   let navigate = useNavigate();
 
