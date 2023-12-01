@@ -20,7 +20,6 @@ import { PiShareFat } from "react-icons/pi";
 import { GoThumbsup } from "react-icons/go";
 import { ImImages } from "react-icons/im";
 import { BsEmojiSmile } from "react-icons/bs";
-import EmojiPicker from "emoji-picker-react";
 
 function NewsFeed({ user }) {
   let params = useParams();
@@ -254,9 +253,9 @@ function NewsFeed({ user }) {
                         moment(b.createdAt).valueOf() -
                         moment(a.createdAt).valueOf()
                     )
-                    .map((post) => {
+                    .map((post, i) => {
                       return (
-                        <Container key={post.postId} fluid>
+                        <Container key={i} fluid>
                           <div className="cardbody">
                             <div className="d-flex align-items-center justify-content-between p-3">
                               <div className="d-flex align-items-center">
