@@ -100,14 +100,14 @@ const SignIn = ({ show, handleClose }) => {
                   Sign In
                 </Button>
               </Form>
+              <p className="register">
+                Not a member yet?{" "}
+                <a className="register-link" href="/">
+                  Sign Up Here
+                </a>{" "}
+                it's free!
+              </p>
             </Modal.Body>
-            <p className="register">
-              Not a member yet?{" "}
-              <a className="register-link" href="/signup">
-                Sign Up Here
-              </a>{" "}
-              it's free!
-            </p>
           </div>
         </div>
       </Modal>

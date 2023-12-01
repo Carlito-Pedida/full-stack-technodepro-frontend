@@ -8,7 +8,6 @@ import SignUp from "./SignUp";
 import SignIn from "./SignIn";
 
 function Landing({ user }) {
-  let { userId } = useParams();
   const [userPosts, setUserPosts] = useState([]);
   let { getUserPosts } = useContext(UserContext);
 
