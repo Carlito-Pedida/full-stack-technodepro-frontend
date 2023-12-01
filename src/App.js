@@ -15,6 +15,7 @@ import { PostProvider } from "./contexts/PostProvider";
 import jwtDecode from "jwt-decode";
 import SignOut from "./components/SignOut";
 import EditProfile from "./components/EditProfile";
+import EditUserPost from "./components/EditUserPost";
 
 function App() {
   const [user, setUser] = useState();
@@ -42,8 +43,12 @@ function App() {
                 <Route path="/post/new" element={<NewPost />} />
                 <Route path="/news-api" element={<NewsApi />} />
                 <Route path="/post/:postId/edit/" element={<EditPost />} />
-                <Route path="/profile/:userId" element={<Profile />} />
-                <Route path="/profile/:userId/edit" element={<EditProfile />} />
+                <Route
+                  path="/userpost/:postId/edit/"
+                  element={<EditUserPost />}
+                />
+                <Route path="/profile/:id" element={<Profile />} />
+                <Route path="/profile/:id/edit" element={<EditProfile />} />
               </Route>
             </Routes>
           </BrowserRouter>

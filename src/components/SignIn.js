@@ -24,7 +24,7 @@ const SignIn = ({ user }) => {
         window.alert(
           "Failed login! Check your username/password or Sign up to create an account"
         );
-        navigate("/sign");
+        navigate("/signin");
       });
   }
 

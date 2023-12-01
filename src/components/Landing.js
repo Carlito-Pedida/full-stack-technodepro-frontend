@@ -38,8 +38,8 @@ function Landing({ user }) {
   return (
     <>
       {user && (
-        <div className="signlanding-wrap">
-          <div className="signlanding">
+        <div className="landing-wrap">
+          <div className="landing">
             <div className="pe-3">
               <h2 className="network">
                 <strong>Welcome Back {userPosts.first_name}!</strong>
@@ -52,7 +52,7 @@ function Landing({ user }) {
             </div>
             <div className="text-overlay">
               <img
-                className="signlanding-img"
+                className="landing-img"
                 width={600}
                 alt="171x180"
                 src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8dGVjaG5vbG9neXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
@@ -62,7 +62,7 @@ function Landing({ user }) {
                   <strong>
                     {" "}
                     <Link to="/newsfeed" className="text-link1">
-                      Check the latest news
+                      Check the latest news...
                     </Link>
                   </strong>{" "}
                 </h4>

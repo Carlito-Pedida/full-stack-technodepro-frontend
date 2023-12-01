@@ -4,18 +4,12 @@ import { useEffect, useState } from "react";
 //import { useEffect, useState } from "react";
 
 export const UserProvider = (props) => {
-  let [allUsers, setAllUsers] = useState([]);
   const baseUrl = "http://localhost:3004/technode/user/";
 
-  useEffect(() => {
-    async function fetchData() {
-      await getAllUsers();
-    }
-    fetchData();
-  }, []);
-
   function getAllUsers() {
-    return axios.get(baseUrl).then((response) => setAllUsers(response.data));
+    return axios.get(baseUrl).then((response) => {
+      return new Promise((resolve) => resolve(response.data));
+    });
   }
 
   function createUser(
@@ -66,38 +60,25 @@ export const UserProvider = (props) => {
     });
   }
 
-  function getProfile(userId) {
-    const url = "http://localhost:3004/technode/user/current/";
+  function getOneUser(userId) {
     let headers = {
       Authorization: `Bearer ${localStorage.getItem("myUserToken")}`
     };
 
-    return axios.get(url + userId, { headers }).then((response) => {
-      console.log(response);
-      return new Promise((resolve) => resolve(response.data));
-    });
-  }
-
-  function getCurrentUser(userId) {
-    const url = "http://localhost:3004/technode/user/current/";
-    let headers = {
-      Authorization: `Bearer ${localStorage.getItem("myUserToken")}`
-    };
-
-    return axios.get(url + userId, { headers }).then((response) => {
+    return axios.get(baseUrl + userId, { headers }).then((response) => {
+      getAllUsers();
       return new Promise((resolve) => resolve(response.data));
     });
   }
 
   function updateUserProfile(user) {
     let headers = {
-      Authorization: `Bearer ${localStorage.getItem("userToken")}`
+      Authorization: `Bearer ${localStorage.getItem("myUserToken")}`
     };
 
     return axios
       .put(baseUrl + user.userId, user, { headers })
       .then((response) => {
-        console.log(response.data);
         getAllUsers();
         return new Promise((resolve) => resolve(response.data));
       });
@@ -106,13 +87,12 @@ export const UserProvider = (props) => {
   return (
     <UserContext.Provider
       value={{
-        allUsers,
+        getAllUsers,
         getUserPosts,
         createUser,
         signInUser,
         updateUserProfile,
-        getCurrentUser,
-        getProfile
+        getOneUser
       }}
     >
       {props.children}

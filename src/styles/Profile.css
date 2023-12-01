@@ -7,7 +7,15 @@
   flex-direction: column;
   row-gap: 10px;
 }
-.profile-wrap {
+/* .profile-wrap {
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid 1px rgba(65, 113, 255, 0.387);
+  padding: 10px;
+  inline-size: 630px;
+} */
+.feedwrap {
   margin-top: 10px;
   margin-left: auto;
   margin-right: auto;

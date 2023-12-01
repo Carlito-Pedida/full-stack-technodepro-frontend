@@ -27,7 +27,7 @@ function Profile({ user }) {
   let params = useParams();
   let navigate = useNavigate();
   const [userPosts, setUserPosts] = useState([]);
-  let [newPost, setNewPost] = useState({
+  const [newPost, setNewPost] = useState({
     postId: params.postId,
     post: ""
   });
@@ -64,12 +64,12 @@ function Profile({ user }) {
   function handlePostSubmit() {
     createPost(newPost)
       .then(() => {
-        navigate(`/profile/${user.userId}`);
+        navigate(`/profile/${userPosts.userId}`);
         window.location.reload();
       })
       .catch((error) => {
         console.log(error);
-        navigate(`/profile/${user.userId}`);
+        navigate(`/profile/${userPosts.userId}`);
       });
   }
 
@@ -78,12 +78,13 @@ function Profile({ user }) {
     if (confirmDelete) {
       deletePost(postId)
         .then(() => {
-          navigate(`/profile/${user.userId}`);
+          navigate(`/profile/${userPosts.userId}`);
+          window.location.reload();
         })
         .catch((error) => {
           console.log(error);
           window.alert("You need to sign in to perform this operation");
-          navigate(`/profile/${user.userId}`);
+          navigate(`/profile/${userPosts.userId}`);
         });
     }
   }
@@ -103,21 +104,19 @@ function Profile({ user }) {
   function handleImageSubmit() {
     postImage(newPost)
       .then(() => {
-        navigate(`/profile/${user.userId}`);
+        navigate(`/profile/${userPosts.userId}`);
         window.location.reload();
       })
       .catch((error) => {
         console.log(error);
-        navigate(`/profile/${user.userId}`);
+        navigate(`/profile/${userPosts.userId}`);
       });
   }
 
   const [modalShow, setModalShow] = useState(false);
-  const [fullscreen, setFullscreen] = useState(true);
   const [selectedPost, setSelectedPost] = useState(null);
 
-  function handleShow(breakpoint) {
-    setFullscreen(breakpoint);
+  function handleShow() {
     setModalShow(true);
   }
 
@@ -140,10 +139,10 @@ function Profile({ user }) {
     postsByUser.push({ Posts });
 
     return (
-      <div key={params.userId} t>
+      <div className="feedwrap" key={params.userId} t>
         <Card className="text-center">
           <Card.Header>
-            <strong>Welcome back {username}!</strong>
+            <strong>Welcome back {first_name}!</strong>
           </Card.Header>
           <Card.Body>
             <div className="profilebod">
@@ -163,10 +162,7 @@ function Profile({ user }) {
                 <Link
                   type="button"
                   className="btn btn-primary btn-sm"
-                  to={{
-                    pathname: `/profile/${userId}/edit`,
-                    state: { user: userPosts }
-                  }}
+                  to={`/profile/${userId}/edit`}
                 >
                   Edit Profile
                 </Link>
@@ -279,7 +275,7 @@ function Profile({ user }) {
                       <div className="d-flex">
                         <Link
                           className="editButton ms-3"
-                          to={`/post/${p.postId}/edit`}
+                          to={`/userpost/${p.postId}/edit`}
                           style={{ marginRight: "10px" }}
                         >
                           <FaRegEdit size={"15px"} />
