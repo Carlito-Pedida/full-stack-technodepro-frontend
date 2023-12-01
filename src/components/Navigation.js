@@ -4,7 +4,6 @@ import { Link, Outlet, useParams } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
 import "../styles/Home.css";
 import Avatar from "react-avatar";
-import { RxAvatar } from "react-icons/rx";
 import SignIn from "./SignIn";
 
 function Navigation({ user }) {
