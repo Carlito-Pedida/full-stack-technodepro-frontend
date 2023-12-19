@@ -78,7 +78,7 @@ function Navigation({ user }) {
             {user && (
               <React.Fragment>
                 <Link
-                  to={`/profile/${user.userId}`}
+                  to={`/profile/${user.username}`}
                   className="nav-link"
                   key={userId}
                 >

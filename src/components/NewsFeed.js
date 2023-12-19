@@ -7,7 +7,8 @@ import {
   Container,
   Image,
   Modal,
-  Row
+  Row,
+  Stack
 } from "react-bootstrap";
 import "../styles/NewsFeed.css";
 import moment from "moment";
@@ -159,18 +160,31 @@ function NewsFeed({ user }) {
       <PostContext.Consumer>
         {({ allPost }) => {
           return (
-            <>
+            <div className="story-reel justify-content-start p-2">
               {allPost.map((story, id) => {
-                <div className="story-reel">
-                  <div className="story" key={id}>
-                    <Avatar src={story.userImg} size="40" round={true} />
-                    <h4>
-                      {story.first_name} {story.last_name}
-                    </h4>
+                return (
+                  <div key={id}>
+                    <div
+                      className="story"
+                      style={{ backgroundImage: `url(${story.imageUrl})` }}
+                    >
+                      <div>
+                        <Avatar
+                          className="story-avatar"
+                          src={story.User.userImg}
+                          size="40"
+                          round={true}
+                        />
+                      </div>
+
+                      <h4>
+                        {story.User.first_name} {story.User.last_name}
+                      </h4>
+                    </div>
                   </div>
-                </div>;
+                );
               })}
-            </>
+            </div>
           );
         }}
       </PostContext.Consumer>
@@ -275,7 +289,7 @@ function NewsFeed({ user }) {
                                   round={true}
                                 />{" "}
                                 <div className="first_name">
-                                  {post.User.first_name}
+                                  {post.User.first_name} {post.User.last_name}
                                   <div className="timestamp">
                                     {moment
                                       .parseZone(post.createdAt)
@@ -328,38 +342,50 @@ function NewsFeed({ user }) {
                               />
                             </div>
                             <br />
-                            <div className="horizontal-line"></div>
-                            <div className="d-flex justify-content-around mb-2 mt-1">
-                              <div className="responses">
-                                <Link>
-                                  <GoThumbsup
-                                    className="post-resp"
-                                    size={"17px"}
-                                  />{" "}
-                                  <strong className="post-resp">Like</strong>
-                                </Link>
-                              </div>
-                              <div className="responses">
-                                <Link>
-                                  <MdOutlineAddComment
-                                    className="post-resp"
-                                    size={"17px"}
-                                  />{" "}
-                                  <strong className="post-resp">Comment</strong>
-                                </Link>
-                              </div>
-                              <div className="responses">
-                                <Link>
-                                  <PiShareFat
-                                    className="post-resp"
-                                    size={"17px"}
-                                  />{" "}
-                                  <strong className="post-resp">Share</strong>
-                                </Link>
-                              </div>
-                            </div>
-                            <div className="horizontal-line"></div>
-                            <br />
+                            {userPosts && post.userId == userPosts.userId ? (
+                              <>
+                                <div className="horizontal-line"></div>
+                                <div className="d-flex justify-content-around mb-2 mt-1">
+                                  <div className="responses">
+                                    <Link>
+                                      <GoThumbsup
+                                        className="post-resp"
+                                        size={"17px"}
+                                      />{" "}
+                                      <strong className="post-resp">
+                                        Like
+                                      </strong>
+                                    </Link>
+                                  </div>
+                                  <div className="responses">
+                                    <Link>
+                                      <MdOutlineAddComment
+                                        className="post-resp"
+                                        size={"17px"}
+                                      />{" "}
+                                      <strong className="post-resp">
+                                        Comment
+                                      </strong>
+                                    </Link>
+                                  </div>
+                                  <div className="responses">
+                                    <Link>
+                                      <PiShareFat
+                                        className="post-resp"
+                                        size={"17px"}
+                                      />{" "}
+                                      <strong className="post-resp">
+                                        Share
+                                      </strong>
+                                    </Link>
+                                  </div>
+                                </div>
+                                <div className="horizontal-line"></div>
+                                <br />
+                              </>
+                            ) : (
+                              <></>
+                            )}
                           </div>
                         </Container>
                       );
