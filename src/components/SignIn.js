@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Modal, Form, Button } from "react-bootstrap";
+import { Modal, Form, Button, CloseButton } from "react-bootstrap";
 import UserContext from "../contexts/UserContext";
 
 import "../styles/SignIn.css";
@@ -61,6 +61,7 @@ const SignIn = ({ show, handleClose }) => {
         <div className="form-wrap">
           <div className="form-case">
             <Modal.Body>
+              <CloseButton onClick={handleClose} />
               <div className="divider d-flex align-items-center my-4">
                 <p className="text-center mx-3 mb-0">Sign In</p>
               </div>
