@@ -156,104 +156,95 @@ function NewsFeed({ user }) {
   return (
     <div className="feedwrap">
       <br />
-      <div className="story-reel">
-        <div className="story">
-          <Avatar src={userPosts.userImg} size="40" round={true} />
-          <h4>
-            {userPosts.first_name} {userPosts.last_name}
-          </h4>
-        </div>
-        <div className="story">
-          <Avatar src={userPosts.userImg} size="40" round={true} />
-          <h4>
-            {userPosts.first_name} {userPosts.last_name}
-          </h4>
-        </div>
-        <div className="story">
-          <Avatar src={userPosts.userImg} size="40" round={true} />
-          <h4>
-            {userPosts.first_name} {userPosts.last_name}
-          </h4>
-        </div>
-        <div className="story">
-          <Avatar src={userPosts.userImg} size="40" round={true} />
-          <h4>
-            {userPosts.first_name} {userPosts.last_name}
-          </h4>
-        </div>
-        <div className="story">
-          <Avatar src={userPosts.userImg} size="40" round={true} />
-          <h4>
-            {userPosts.first_name} {userPosts.last_name}
-          </h4>
-        </div>
-      </div>
+      <PostContext.Consumer>
+        {({ allPost }) => {
+          return (
+            <>
+              {allPost.map((story, id) => {
+                <div className="story-reel">
+                  <div className="story" key={id}>
+                    <Avatar src={story.userImg} size="40" round={true} />
+                    <h4>
+                      {story.first_name} {story.last_name}
+                    </h4>
+                  </div>
+                </div>;
+              })}
+            </>
+          );
+        }}
+      </PostContext.Consumer>
 
       <br />
-
-      <div className="d-flex align-items-center justify-content-center">
-        <Avatar
-          className="avatar me-2"
-          src={userPosts.userImg}
-          size="40"
-          round={true}
-        />{" "}
-        <div className="d-flex">
-          <form onSubmit={handlePostSubmit} key={postId}>
-            <input
-              size={47}
-              className="share-input p-2 me-2"
-              type="text"
-              name="post"
-              value={post}
-              placeholder={`...What do you have in mind ${userPosts.first_name}?`}
-              onChange={handlePostChange}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  e.preventDefault(); // Prevents the default form submission
-                  handlePostSubmit();
-                }
-              }}
-            />
-          </form>
-          <form onSubmit={handleImageSubmit} key={postId}>
-            <input
-              className="share-input p-2"
-              type="text"
-              name="imageUrl"
-              value={imageUrl}
-              placeholder="...Image URL / optional"
-              onChange={handleImageChange}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  e.preventDefault(); // Prevents the default form submission
-                  handleImageSubmit();
-                }
-              }}
-            />
-          </form>
-        </div>
-      </div>
-      <div className="message-layer2 d-flex justify-content-evenly align-items-center mt-3">
-        <Link>
-          <div className="message-action align-items-center">
-            <FaVideo size={"23px"} style={{ color: "red" }} />
-            Live Video
+      {userPosts && userPosts.userId ? (
+        <>
+          <div className="d-flex align-items-center justify-content-center">
+            <Avatar
+              className="avatar me-2"
+              src={userPosts.userImg}
+              size="40"
+              round={true}
+            />{" "}
+            <div className="d-flex">
+              <form onSubmit={handlePostSubmit} key={postId}>
+                <input
+                  size={47}
+                  className="share-input p-2 me-2"
+                  type="text"
+                  name="post"
+                  value={post}
+                  placeholder={`...What do you have in mind ${userPosts.first_name}?`}
+                  onChange={handlePostChange}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      e.preventDefault(); // Prevents the default form submission
+                      handlePostSubmit();
+                    }
+                  }}
+                />
+              </form>
+              <form onSubmit={handleImageSubmit} key={postId}>
+                <input
+                  className="share-input p-2"
+                  type="text"
+                  name="imageUrl"
+                  value={imageUrl}
+                  placeholder="...Image URL / optional"
+                  onChange={handleImageChange}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      e.preventDefault(); // Prevents the default form submission
+                      handleImageSubmit();
+                    }
+                  }}
+                />
+              </form>
+            </div>
           </div>
-        </Link>
-        <Link>
-          <div className="message-action  align-items-center">
-            <ImImages size={"23px"} style={{ color: "green" }} />
-            Photo/video
+          <div className="message-layer2 d-flex justify-content-evenly align-items-center mt-3">
+            <Link>
+              <div className="message-action align-items-center">
+                <FaVideo size={"23px"} style={{ color: "red" }} />
+                Live Video
+              </div>
+            </Link>
+            <Link>
+              <div className="message-action  align-items-center">
+                <ImImages size={"23px"} style={{ color: "green" }} />
+                Photo/video
+              </div>
+            </Link>
+            <Link>
+              <div className="message-action  align-items-center">
+                <BsEmojiSmile size={"23px"} style={{ color: "orange" }} />
+                Feeling/activity
+              </div>
+            </Link>
           </div>
-        </Link>
-        <Link>
-          <div className="message-action  align-items-center">
-            <BsEmojiSmile size={"23px"} style={{ color: "orange" }} />
-            Feeling/activity
-          </div>
-        </Link>
-      </div>
+        </>
+      ) : (
+        <></>
+      )}
 
       <div className="divider d-flex align-items-center my-4">
         <p className="wire text-center mx-3 mb-0">What's on the wire?</p>

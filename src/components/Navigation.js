@@ -96,6 +96,12 @@ function Navigation({ user }) {
                 <Link to="/signout" className="nav-link">
                   <strong>SignOut</strong>
                 </Link>
+                <Link to="/newsfeed" className="nav-link">
+                  <strong>News Feed</strong>
+                </Link>
+                <Link to="/post/new" className="nav-link">
+                  <strong>Post New</strong>
+                </Link>
               </React.Fragment>
             )}
 
