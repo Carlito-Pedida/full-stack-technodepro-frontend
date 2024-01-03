@@ -43,6 +43,9 @@
   padding: 15px;
   border-radius: 8px;
 }
+.avatar {
+  border: solid rgb(178, 178, 178) 2px;
+}
 
 .editButton {
   width: calc(var(--nav-size) * 0.8);
@@ -178,15 +181,16 @@
 .story {
   padding: 10px;
   position: relative;
-  background-position: center center;
+  background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
-  width: 120px;
+  width: 200px;
   height: 200px;
   box-shadow: 0px, 5px, 17px, -7px rgba(0, 0, 0, 75);
   border-radius: 10px;
   transition: transform 100ms ease-in;
   cursor: pointer;
+  overflow: auto;
 }
 
 .story > h4 {
@@ -201,7 +205,6 @@
 }
 
 .story-reel {
-  margin: auto;
   overflow: scroll;
 }
 .story-avatar {

@@ -111,7 +111,7 @@ function Landing({ user }) {
         <div className="landing-wrap">
           <div className="landing">
             <div>
-              <h1 className="network">Welcome to TechNodePro.com</h1>
+              <h1 className="network">Welcome to TechNodePro</h1>
               <h3 className="network">
                 a safe information haven for junior developers
               </h3>

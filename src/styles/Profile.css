@@ -183,7 +183,7 @@
   object-fit: cover;
 }
 
-.story {
+/* .story {
   padding: 10px;
   position: relative;
   background-position: center center;
@@ -196,7 +196,7 @@
   border-radius: 10px;
   transition: transform 100ms ease-in;
   cursor: pointer;
-}
+} */
 
 .story > h4 {
   position: absolute;
