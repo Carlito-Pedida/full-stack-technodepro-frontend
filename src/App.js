@@ -16,6 +16,7 @@ import jwtDecode from "jwt-decode";
 import SignOut from "./components/SignOut";
 import EditProfile from "./components/EditProfile";
 import EditUserPost from "./components/EditUserPost";
+import NewUser from "./components/NewUser";
 
 function App() {
   const [user, setUser] = useState();
@@ -37,6 +38,7 @@ function App() {
               <Route path="/" element={<Navigation user={user} />}>
                 <Route index element={<Landing user={user} />} />
                 <Route path="/signup" element={<SignUp />} />
+                <Route path="/new-user" element={<NewUser />} />
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/signout" element={<SignOut />} />
                 <Route path="/newsfeed" element={<NewsFeed />} />

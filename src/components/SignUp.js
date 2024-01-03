@@ -16,6 +16,7 @@ const SignUp = () => {
   const [userImg, setUserImage] = useState("");
 
   let { createUser } = useContext(UserContext);
+
   let navigate = useNavigate();
 
   function handleSubmit(event) {
@@ -32,7 +33,7 @@ const SignUp = () => {
       userImg
     )
       .then(() => {
-        navigate("/signin");
+        navigate("/new-user");
       })
       .catch((error) => {
         console.log(error);
@@ -84,14 +85,25 @@ const SignUp = () => {
               type="text"
               name="first_name"
               value={first_name}
-              onChange={(e) => setFirst_Name(e.target.value)}
+              // onChange={(e) => setFirst_Name(e.target.value)}
+              onChange={(e) =>
+                setFirst_Name(
+                  e.target.value.charAt(0).toUpperCase() +
+                    e.target.value.slice(1)
+                )
+              }
             />
             <input
               placeholder="Last Name"
               type="text"
               name="last_name"
               value={last_name}
-              onChange={(e) => setLast_Name(e.target.value)}
+              onChange={(e) =>
+                setLast_Name(
+                  e.target.value.charAt(0).toUpperCase() +
+                    e.target.value.slice(1)
+                )
+              }
             />
           </div>
           <div className="reg-input">
@@ -100,14 +112,24 @@ const SignUp = () => {
               type="text"
               name="city"
               value={city}
-              onChange={(e) => setCity(e.target.value)}
+              onChange={(e) =>
+                setCity(
+                  e.target.value.charAt(0).toUpperCase() +
+                    e.target.value.slice(1)
+                )
+              }
             />
             <input
               placeholder="State"
               type="text"
               name="state"
               value={state}
-              onChange={(e) => setState(e.target.value)}
+              onChange={(e) =>
+                setState(
+                  e.target.value.charAt(0).toUpperCase() +
+                    e.target.value.slice(1)
+                )
+              }
             />
           </div>
           <input
