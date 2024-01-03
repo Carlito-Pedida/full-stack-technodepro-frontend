@@ -68,7 +68,7 @@ function Navigation({ user }) {
               alt="logo"
             />
             <span> </span>
-            <strong>technode</strong>
+            <strong>TechNodePro</strong>
           </Navbar.Brand>
 
           <Nav className="d-flex align-items-center justify-content-end flex-grow-1 pe-3 color-white">
@@ -97,7 +97,7 @@ function Navigation({ user }) {
                   <strong>SignOut</strong>
                 </Link>
                 <Link to="/newsfeed" className="nav-link">
-                  <strong>News Feed</strong>
+                  <strong>Blog Posts</strong>
                 </Link>
                 <Link to="/post/new" className="nav-link">
                   <strong>Post New</strong>
@@ -118,7 +118,7 @@ function Navigation({ user }) {
                   <strong>Sign Up</strong>
                 </Link>
                 <Link to="/newsfeed" className="nav-link">
-                  <strong>News Feed</strong>
+                  <strong>Blog Posts</strong>
                 </Link>
                 <Link to="/post/new" className="nav-link">
                   <strong>Post New</strong>

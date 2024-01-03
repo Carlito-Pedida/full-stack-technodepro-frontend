@@ -55,14 +55,14 @@ function Landing({ user }) {
           <div className="landing">
             <div className="pe-3">
               <h2 className="network">
-                <strong>Welcome Back {userPosts.first_name}!</strong>
+                <strong>Hello {userPosts.first_name}!</strong>
               </h2>
 
               <br />
 
               <h3 className="ask-user">What would you like to do today?</h3>
               <br />
-              <h1 className="network">technode.com</h1>
+              <h1 className="network">TechNodePro.com</h1>
 
               <p className="hassle">
                 The hassle-free media platform for aspiring full-stack
@@ -88,7 +88,7 @@ function Landing({ user }) {
                   <strong>
                     {" "}
                     <Link to="/newsfeed" className="text-link1">
-                      Check the latest news...
+                      Check the latest blog post...
                     </Link>
                   </strong>{" "}
                 </h4>
@@ -111,12 +111,14 @@ function Landing({ user }) {
         <div className="landing-wrap">
           <div className="landing">
             <div>
-              <h1 className="network">Welcome to technode.com</h1>
-              <h3 className="network">a haven for tech writers and readers</h3>
+              <h1 className="network">Welcome to TechNodePro.com</h1>
+              <h3 className="network">
+                a safe information haven for junior developers
+              </h3>
               <br />
               <p className="hassle">
                 The hassle-free media platform for aspiring full-stack
-                developers
+                developers and engineers
               </p>
               <br />
 
