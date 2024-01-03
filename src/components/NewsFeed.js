@@ -7,12 +7,11 @@ import {
   Container,
   Image,
   Modal,
-  Row,
-  Stack
+  Row
 } from "react-bootstrap";
 import "../styles/NewsFeed.css";
 import moment from "moment";
-import Avatar from "react-avatar";
+
 import UserContext from "../contexts/UserContext";
 import { FaRegEdit, FaVideo } from "react-icons/fa";
 import { FaRegTrashCan } from "react-icons/fa6";
@@ -21,6 +20,7 @@ import { PiShareFat } from "react-icons/pi";
 import { GoThumbsup } from "react-icons/go";
 import { ImImages } from "react-icons/im";
 import { BsEmojiSmile } from "react-icons/bs";
+import { Avatar } from "@mui/material";
 
 function NewsFeed({ user }) {
   let params = useParams();
@@ -139,11 +139,11 @@ function NewsFeed({ user }) {
     }
   }
 
-  const [index, setIndex] = useState(0);
+  // const [index, setIndex] = useState(0);
 
-  const handleSelect = (selectedIndex) => {
-    setIndex(selectedIndex);
-  };
+  // const handleSelect = (selectedIndex) => {
+  //   setIndex(selectedIndex);
+  // };
 
   const [modalShow, setModalShow] = useState(false);
   const [fullscreen, setFullscreen] = useState(true);
@@ -160,30 +160,35 @@ function NewsFeed({ user }) {
       <PostContext.Consumer>
         {({ allPost }) => {
           return (
-            <div className="story-reel justify-content-start p-2">
-              {allPost.map((story, id) => {
-                return (
-                  <div key={id}>
-                    <div
-                      className="story"
-                      style={{ backgroundImage: `url(${story.imageUrl})` }}
-                    >
-                      <div>
-                        <Avatar
-                          className="story-avatar"
-                          src={story.User.userImg}
-                          size="40"
-                          round={true}
-                        />
-                      </div>
+            <div className="story-reel-container">
+              <div className="story-reel justify-content-start p-2">
+                {allPost.map((story, id) => {
+                  return (
+                    <div key={id}>
+                      <div
+                        className="story"
+                        style={{
+                          backgroundImage: `url(${story.imageUrl})`,
+                          backgroundColor: "dimgrey"
+                        }}
+                      >
+                        <div>
+                          <Avatar
+                            className="story-avatar"
+                            src={story.User.userImg}
+                            size="40"
+                            round={true}
+                          />
+                        </div>
 
-                      <h4>
-                        {story.User.first_name} {story.User.last_name}
-                      </h4>
+                        <h4>
+                          {story.User.first_name} {story.User.last_name}
+                        </h4>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           );
         }}
@@ -261,7 +266,7 @@ function NewsFeed({ user }) {
       )}
 
       <div className="divider d-flex align-items-center my-4">
-        <p className="wire text-center mx-3 mb-0">What's on the wire?</p>
+        <p className="wire text-center mx-3 mb-0">Latest on the wire</p>
       </div>
 
       <PostContext.Consumer>
