@@ -3,7 +3,7 @@ import { Container, Nav, Navbar, Stack } from "react-bootstrap";
 import { Link, Outlet, useParams } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
 import "../styles/Home.css";
-import Avatar from "react-avatar";
+import { Avatar } from "@mui/material";
 import SignIn from "./SignIn";
 
 function Navigation({ user }) {
