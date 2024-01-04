@@ -8,7 +8,6 @@ import NewPost from "./components/NewPost";
 import Landing from "./components/Landing";
 import NewsFeed from "./components/NewsFeed";
 import Navigation from "./components/Navigation";
-import NewsApi from "./components/NewsApi";
 import Profile from "./components/Profile";
 import { UserProvider } from "./contexts/UserProvider";
 import { PostProvider } from "./contexts/PostProvider";
@@ -17,6 +16,7 @@ import SignOut from "./components/SignOut";
 import EditProfile from "./components/EditProfile";
 import EditUserPost from "./components/EditUserPost";
 import NewUser from "./components/NewUser";
+import TechWorld from "./components/TechWorld";
 
 function App() {
   const [user, setUser] = useState();
@@ -43,7 +43,7 @@ function App() {
                 <Route path="/signout" element={<SignOut />} />
                 <Route path="/newsfeed" element={<NewsFeed />} />
                 <Route path="/post/new" element={<NewPost />} />
-                <Route path="/news-api" element={<NewsApi />} />
+                <Route path="/tech-world" element={<TechWorld />} />
                 <Route path="/post/:postId/edit/" element={<EditPost />} />
                 <Route
                   path="/userpost/:postId/edit/"

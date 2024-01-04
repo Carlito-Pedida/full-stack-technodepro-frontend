@@ -99,8 +99,8 @@ function Navigation({ user }) {
                 <Link to="/newsfeed" className="nav-link">
                   <strong>Blog Posts</strong>
                 </Link>
-                <Link to="/post/new" className="nav-link">
-                  <strong>Post New</strong>
+                <Link to="/tech-world" className="nav-link">
+                  <strong>Tech World</strong>
                 </Link>
               </React.Fragment>
             )}
@@ -120,8 +120,8 @@ function Navigation({ user }) {
                 <Link to="/newsfeed" className="nav-link">
                   <strong>Blog Posts</strong>
                 </Link>
-                <Link to="/post/new" className="nav-link">
-                  <strong>Post New</strong>
+                <Link to="/tech-world" className="nav-link">
+                  <strong>Tech World</strong>
                 </Link>
               </React.Fragment>
             )}

@@ -1,4 +1,4 @@
-.post-item {
+/* .post-item {
   border-radius: 7px;
   margin: 20px;
   padding: 25px;
@@ -6,7 +6,7 @@
   background-color: rgba(207, 205, 247, 0.196);
   flex-direction: column;
   row-gap: 10px;
-}
+} */
 .feedwrap {
   margin-top: 10px;
   margin-left: auto;

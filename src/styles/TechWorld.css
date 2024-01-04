@@ -1,0 +1,104 @@
+.rss-wrap {
+  border-radius: 5px;
+  margin: 20px;
+  padding: 25px;
+  display: flex;
+  background-color: rgba(222, 222, 223, 0.196);
+  flex-direction: column;
+  row-gap: 10px;
+}
+.rss-bg {
+  border: solid 1px;
+  border-radius: 5px;
+  border-color: rgba(174, 174, 206, 0.616);
+  padding: 20px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.rss {
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: rgb(73, 85, 98);
+  color: rgb(74, 95, 112);
+}
+
+.latest h3 {
+  color: rgb(74, 95, 112);
+}
+.pop-feeds h3 {
+  color: rgb(74, 95, 112);
+}
+.title-link {
+  text-decoration: none;
+  color: rgb(74, 95, 112);
+}
+.author {
+  font-size: smaller;
+  color: dimgray;
+}
+.read-more {
+  text-decoration: none;
+}
+.read-more:hover {
+  cursor: pointer;
+}
+.mod-txt1 {
+  text-decoration: none;
+}
+.title-link:hover {
+  cursor: pointer;
+}
+.accordlink:hover {
+  cursor: pointer;
+}
+
+.mod-txt2 {
+  text-align: left;
+  font-family: sans-serif;
+  color: rgb(116, 116, 116);
+}
+.top-com {
+  padding: 3px;
+}
+.top-com-link {
+  text-decoration: none;
+}
+.tc-img {
+  background-color: rgb(211, 212, 216);
+  vertical-align: middle;
+  margin: 2px;
+  border: solid 0.5px;
+  border-color: rgba(74, 95, 112, 0.956);
+  border-radius: 50px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.mod-foot {
+  display: flex;
+  align-items: baseline;
+  align-content: space-between;
+  column-gap: 85px;
+  font-size: small;
+}
+.snippet {
+  text-decoration: none;
+}
+.modal-wrap {
+  border: solid 3px;
+  border-color: rgb(124, 124, 213);
+  padding: 20px;
+}
+.modal-case {
+  border: solid 1px;
+  border-color: rgb(124, 124, 213);
+  padding: 20px;
+}
+.mod-title {
+  border-color: rgb(124, 124, 213);
+}
