@@ -163,10 +163,17 @@ function NewsFeed({ user }) {
             <div className="story-reel-container">
               <div className="story-reel justify-content-start p-2">
                 {allPost.map((story, id) => {
+                  console.log(story);
                   return (
                     <div key={id}>
                       <div
                         className="story"
+                        src
+                        onClick={() => {
+                          setSelectedPost(story);
+                          setModalShow(true);
+                          handleShow();
+                        }}
                         style={{
                           backgroundImage: `url(${story.imageUrl})`,
                           backgroundColor: "dimgrey"
