@@ -17,6 +17,7 @@ import EditProfile from "./components/EditProfile";
 import EditUserPost from "./components/EditUserPost";
 import NewUser from "./components/NewUser";
 import TechWorld from "./components/TechWorld";
+import TechWorldArticle from "./components/TechWorldArticle";
 
 function App() {
   const [user, setUser] = useState();
@@ -44,6 +45,7 @@ function App() {
                 <Route path="/newsfeed" element={<NewsFeed />} />
                 <Route path="/post/new" element={<NewPost />} />
                 <Route path="/tech-world" element={<TechWorld />} />
+                <Route path="/tech-world-html" element={<TechWorldArticle />} />
                 <Route path="/post/:postId/edit/" element={<EditPost />} />
                 <Route
                   path="/userpost/:postId/edit/"
