@@ -35,7 +35,7 @@ function Navigation({ user }) {
     return () => {
       isMounted = false;
     };
-  }, []);
+  });
 
   const [showSignInModal, setShowSignInModal] = useState(false);
 
@@ -97,7 +97,7 @@ function Navigation({ user }) {
                   <strong>SignOut</strong>
                 </Link>
                 <Link to="/newsfeed" className="nav-link">
-                  <strong>Blog Posts</strong>
+                  <strong>Posts</strong>
                 </Link>
                 <Link to="/tech-world" className="nav-link">
                   <strong>Tech World</strong>

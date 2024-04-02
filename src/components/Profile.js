@@ -13,7 +13,7 @@ import {
 } from "react-bootstrap";
 import "../styles/Profile.css";
 import { Link } from "react-router-dom";
-import Avatar from "react-avatar";
+import { Avatar } from "@mui/material";
 import { FaRegEdit, FaVideo } from "react-icons/fa";
 import { FaRegTrashCan } from "react-icons/fa6";
 import { MdOutlineAddComment } from "react-icons/md";
